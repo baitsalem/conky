@@ -149,44 +149,28 @@ ${color6}${top name 1}$alignr${top cpu 1}   ${top mem 1}
 ${color7}${top name 2}$alignr${top cpu 2}   ${top mem 2}
 ${color8}${top name 3}$alignr${top cpu 3}   ${top mem 3}
 ${color8}${top name 4}$alignr${top cpu 4}   ${top mem 4}
-
 ${color4}Memory
 ${color6}RAM : ${color5}($memmax)${alignr}${color6}$mem${color}${membar 8,75}
 ${color6}SWAP: ${color5}($swapmax)${alignr}${color6}$swap${color}${swapbar 8,75}
-
 ${color8}${hr 4}
-
 ${color4}HDD
 ${color5}Linux:${color1}(${fs_type})${alignr}${color7}${fs_used /}  <  >  ${color7}${fs_free /}
 ${color8}Total: ${fs_size /}${alignr}${color}${fs_bar 8,150}
-
-#${color5}Windows:${color1}(${fs_type /run/media/Windows})${alignr}${color7}${fs_used /run/media/Windows}  <  >  ${color7}${fs_free /run/media/Windows}
-#${color8}Total: ${fs_size /run/media/Windows}${alignr}${color}${fs_bar 8,150 /run/media/Windows}
-
-#${color5}Extra:${color1}(${fs_type /run/media/Extra})${alignr}${color7}${fs_used /run/media/Extra}  <  >  ${color7}${fs_free /run/media/Extra}
-#${color8}Total: ${fs_size /run/media/Extra}${alignr}${color}${fs_bar 8,150 /run/media/Extra}
-
 ${color7}HDD Read-> ${alignc}${color2}${diskio_read}/s ${alignr}${color3}${diskio_write}/s ${color7}<-HDD Write
 ${color2}${diskiograph_read 8,150} ${alignr}${color3}${diskiograph_write 8,150}${color}
-
 ${color8}${hr 4}
-
-${color4}Lan${color} ${alignr}${color7}IP: ${lua myaddr}
-${color7}Download: ${color2}${lua myspeed down} k/s ${alignr} $alignr${color7}Upload: ${color3} ${lua myspeed up} k/s
-${color lightgray}${lua myspeedgraph down 60 120} ${alignr} ${lua myspeedgraph up 60 120}$color
-
-${color4}Wifi${alignr}${color7}IP: ${lua mywaddr}
-${color7}ESSID:${color1}${lua myssid} ${color7}Rate:${color1}${lua wbitrate} 
-${color7}Quality:${color1}${lua wlinkqual}%${color}${lua wlinkbar 8,75}
-
-${color7}Download: ${color2}${lua mywspeed down}KB/s ${color3} $alignr${color7}Upload: ${alignr}${color3}${lua mywspeed up}KB/s
-${color lightgray}${lua mywspeedgraph down 60 120} ${alignr} ${lua mywspeedgraph up 60 120}$color
-
-
-
+${if_empty ${lua myaddr}} 
+	${color4}Lan${color} ${alignr}${color7}IP: ${lua myaddr}
+	${color7}Download: ${color2}${lua myspeed down} k/s ${alignr} $alignr${color7}Upload: ${color3} ${lua myspeed up} k/s
+	${color lightgray}${lua myspeedgraph down 60 120} ${alignr} ${lua myspeedgraph up 60 120}$color
+${else}
+	${color4}Wifi${alignr}${color7}IP: ${lua mywaddr}
+	${color7}ESSID:${color1}${lua myssid} ${color7}Rate:${color1}${lua wbitrate} 
+	${color7}Quality:${color1}${lua wlinkqual}%${color}${lua wlinkbar 8,75}
+	${color7}Download: ${color2}${lua mywspeed down}KB/s ${color3} $alignr${color7}Upload: ${alignr}${color3}${lua mywspeed up}KB/s
+	${color lightgray}${lua mywspeedgraph down 60 120} ${alignr} ${lua mywspeedgraph up 60 120}$color
+$endif
 ${color8}${hr 4}
-
-${color4}Battery${color1}${alignr}${battery_percent BAT1}
-${color}${battery_bar BAT1  8,}
-
+${color4}Battery${color1}${alignr}${lua battery}
+${color}${lua batterybar 8,}
 ]]
