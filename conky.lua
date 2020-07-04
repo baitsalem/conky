@@ -39,24 +39,24 @@ function conky_mywspeedgraph(upordown, h, w)
 end
 
 function conky_myssid()
-  return conky_parse('${wireless_essid' .. findWInterface() .. '}')
+  return conky_parse('${wireless_essid ' .. findWInterface() .. '}')
 end
 
 function conky_wbitrate()
-  return conky_parse('${wireless_bitrate' .. findWInterface() .. '}')
+  return conky_parse('${wireless_bitrate ' .. findWInterface() .. '}')
 end
 
 function conky_wlinkqual()
-  return conky_parse('${wireless_link_qual_perc' .. findWInterface() .. '}')
+  return conky_parse('${wireless_link_qual_perc ' .. findWInterface() .. '}')
 end
 
 function conky_wlinkbar(value)
-  return conky_parse('${wireless_link_bar' .. value .. findWInterface() .. '}')
+  return conky_parse('${wireless_link_bar ' .. value .. ' ' .. findWInterface() .. '}')
 end
 
 
 function findWInterface()
-  local handle = io.popen('ip a | grep "state UP" | cut -d: -f2 | tr -d " " | grep -E "wl.*')
+  local handle = io.popen('ip a | grep "state UP" | cut -d: -f2 | tr -d " " | grep -E "wl.*"')
   local result = handle:read('*a'):gsub('\n$','')
   handle:close()
   return result

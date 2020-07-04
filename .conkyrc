@@ -55,6 +55,7 @@
 #
 #========================================================================
 
+
 background yes
 update_interval 3
 total_run_times 0
@@ -149,7 +150,9 @@ ${color7}Download: ${color2}${lua myspeed down} k/s ${alignr} $alignr${color7}Up
 ${color lightgray}${lua myspeedgraph down 60 120} ${alignr} ${lua myspeedgraph up 60 120}$color
 
 ${color4}Wifi${alignr}${color7}IP: ${lua mywaddr}
-${color7}ESSID:${color1}${lua myssid} ${color7}Rate:${color1}${lua wbitrate} ${alignr}${color7}Quality:${color1}${lua wlinkqual}%${color}${wlinkbar 8,75}
+${color7}ESSID:${color1}${lua myssid} ${color7}Rate:${color1}${lua wbitrate} 
+${color7}Quality:${color1}${lua wlinkqual}%${color}${lua wlinkbar 8,75}
+
 ${color7}Download: ${color2}${lua mywspeed down}KB/s ${color3} $alignr${color7}Upload: ${alignr}${color3}${lua mywspeed up}KB/s
 ${color lightgray}${lua mywspeedgraph down 60 120} ${alignr} ${lua mywspeedgraph up 60 120}$color
 
@@ -157,7 +160,7 @@ ${color lightgray}${lua mywspeedgraph down 60 120} ${alignr} ${lua mywspeedgraph
 
 ${color8}${hr 4}
 
-${color4}Battery${color1}${alignr}${battery_percent BAT0}
-${color}${battery_bar BAT0  8,}
+${color4}Battery${color1}${alignr}${battery_percent BAT1}
+${color}${battery_bar BAT1  8,}
 
 
