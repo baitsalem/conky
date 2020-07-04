@@ -79,8 +79,8 @@ conky.config = {
 
 
     use_xft = true,
-    xftfont = 'caviar dreams:size=8',
-   
+    font = 'caviar dreams:size=8',
+
     gap_x = 5,
     gap_y = 40,
 
@@ -136,7 +136,7 @@ ${color}${font :Bold:size=14} $alignc ${time %h} ${time %e} - ${time %Y}${font :
 $alignc(${time %A})
 ${color8}$alignc Uptime: $uptime
 ${color8}${hr 2} 
-${color8}$alignc ${pre_exec lsb_release -d | cut -f 2| tr "[:upper:]" "[:lower:]"}${color8}$alignc $sysname $kernel
+${color8}$alignc ${exec lsb_release -d | cut -f 2| tr "[:upper:]" "[:lower:]"}${color8}$alignc $sysname $kernel
 ${color8}$alignc ${execi 1000 cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //'| uniq}
 ${color8}${hr 2}
 ${color4}CPU $alignr${color6}CPU: ${color1}${hwmon 0 temp 1}°C ${color6}GPU: ${color1}${execi 60 nvidia-settings -t -q GPUCoreTemp}°C 

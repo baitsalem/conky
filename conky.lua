@@ -62,4 +62,20 @@ function findWInterface()
   return result
 end
 
+function conky_battery()
+  return conky_parse('${battery_percent ' .. findBatteryName() .. '}')
+end
+
+function conky_batterybar(value)
+  return conky_parse('${battery_bar ' .. findBatteryName() .. ' ' .. value .. '}')
+end
+
+function findBatteryName()
+  local handle = io.popen('ls /sys/class/power_supply | grep "BAT" | tail -1')
+  local result = handle:read('*a'):gsub('\n$','')
+  handle:close()
+  return result
+end
+
+
 
