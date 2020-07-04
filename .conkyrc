@@ -1,109 +1,135 @@
-#----------------------------------------------------------------------
-#sudo apt-get install conky
-#extract the zip file and move files to .conky in your home folder
-#----------------------------------------------------------------------
-#Run(Terminal): 
-# conky -c ~/.conky/conkyrc
-#----------------------------------------------------------------------
-#Autostart(fluxbox):
-# vim  .fluxbox/autostart
-#add these lines below for autostart (without first #)
-# # System Info
-# conky -c ~/.conky/conkyrc &
-#----------------------------------------------------------------------
-#Autostart(Ubuntu/Gnome): create conky-startup.sh paste below (without first #)
-# #!/bin/bash
-# conky -c ~/.conky/conkyrc ;
-#alt+F2 type gnome-session-properties add line below to your startup section
-# .conky/conky-startup.sh
-#
-#	Gnome 14 and later
-#
-#	cp ~/.conky/conky.desktop /usr/share/gnome/autostart/
-#
-#	or
-#
-#	gedit /usr/share/gnome/autostart/conky.desktop
-#	addlines below;
-#
-##	#conky.desktop
-##	[Desktop Entry]
-##	Type=Application
-##	Name=Conky
-##	Comment=Start conky script
-##	Exec=.conky/conky-startup.sh
-##	OnlyShowIn=GNOME;
-##	X-GNOME-Autostart-Phase=Application
-#----------------------------------------------------------------------
-#Autostart(LXDE)
-# sudo leafpad  /etc/xdg/lxsession/LXDE/autostart
-#add (without first #)
-# @conky -c ~/.conky/conkyrc
-#----------------------------------------------------------------------
-# Disable a section, add "#" beginning of the line
-#----------------------------------------------------------------------
-# For quad/dual core processors add/remove "#" beginning of the core2,3,4
-#
-# CPU Info: cat /proc/cpuinfo
-#----------------------------------------------------------------------
-# Battery Info: ls /proc/acpi/battery > cat /proc/acpi/battery/****/info
-# For battery info add/remove "#" beginning of the battery line
-#----------------------------------------------------------------------
-# alignment b=bottom t=top l=left r=right
-#----------------------------------------------------------------------
-# Nvidia gpu temp: apt-get install nvidia-settings
-#
-#========================================================================
+-- vim: ts=4 sw=4 noet ai cindent syntax=lua
+--[[
+
+----------------------------------------------------------------------
+sudo apt-get install conky
+extract the zip file and move files to .conky in your home folder
+----------------------------------------------------------------------
+Run(Terminal): 
+ conky -c ~/.conky/conkyrc
+----------------------------------------------------------------------
+Autostart(fluxbox):
+ vim  .fluxbox/autostart
+add these lines below for autostart (without first \#)
+  System Info
+ conky -c ~/.conky/conkyrc &
+----------------------------------------------------------------------
+Autostart(Ubuntu/Gnome): create conky-startup.sh paste below (without first \#)
+ \#!/bin/bash
+ conky -c ~/.conky/conkyrc ;
+alt+F2 type gnome-session-properties add line below to your startup section
+ .conky/conky-startup.sh
+
+	Gnome 14 and later
+
+	cp ~/.conky/conky.desktop /usr/share/gnome/autostart/
+
+	or
+
+	gedit /usr/share/gnome/autostart/conky.desktop
+	addlines below;
+
+	conky.desktop
+	[Desktop Entry]
+	Type=Application
+	Name=Conky
+	Comment=Start conky script
+	Exec=.conky/conky-startup.sh
+	OnlyShowIn=GNOME;
+	X-GNOME-Autostart-Phase=Application
+----------------------------------------------------------------------
+Autostart(LXDE)
+ sudo leafpad  /etc/xdg/lxsession/LXDE/autostart
+add (without first #)
+ @conky -c ~/.conky/conkyrc
+----------------------------------------------------------------------
+ Disable a section, add "#" beginning of the line
+----------------------------------------------------------------------
+ For quad/dual core processors add/remove "#" beginning of the core2,3,4
+
+ CPU Info: cat /proc/cpuinfo
+----------------------------------------------------------------------
+ Battery Info: ls /proc/acpi/battery > cat /proc/acpi/battery/****/info
+ For battery info add/remove "#" beginning of the battery line
+----------------------------------------------------------------------
+ alignment b=bottom t=top l=left r=right
+----------------------------------------------------------------------
+ Nvidia gpu temp: apt-get install nvidia-settings
+
+========================================================================
+]]
+
+conky.config = {
+
+    update_interval = 3,
+    total_run_times = 0,
+
+    temperature_unit = 'celsius',
+
+    alignment = 'top_right',
+    background = true,
+    border_width = 1,
+    cpu_avg_samples = 2,
+    default_color = 'DeepSkyBlue',
+    default_shade_color = 'white',
+    draw_borders = false,
+    draw_graph_borders = true,
+    draw_outline = true,
+    draw_shades = true,
 
 
-background yes
-update_interval 3
-total_run_times 0
+    use_xft = true,
+    xftfont = 'caviar dreams:size=8',
+   
+    gap_x = 5,
+    gap_y = 40,
 
-cpu_avg_samples 2
-net_avg_samples 2
-temperature_unit celsius
+    minimum_height = 5,
+    minimum_width = 5,
+    net_avg_samples = 2,
+    no_buffers = true,
+    double_buffer =  true,
+    text_buffer_size = 2048,
 
-double_buffer yes
-no_buffers yes
-text_buffer_size 2048
+    out_to_console = false,
+    out_to_stderr = false,
+    extra_newline = false,
+    own_window = true,
+    own_window_class = 'Conky',
+    stippled_borders = 0,
+    update_interval = 1.0,
+    uppercase = false,
+    use_spacer = 'none',
+    show_graph_scale = false,
+    show_graph_range = false,
+    own_window_type = 'override',
+    own_window_transparent = true,
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+    border_inner_margin =  0,
+    border_outer_margin =  0,
 
-gap_x 05
-gap_y 40
-minimum_size 190 325
-maximum_width 325
-own_window yes
-own_window_type override
-own_window_transparent yes
-own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
-border_inner_margin 0
-border_outer_margin 0
-alignment tr
 
-draw_shades yes
-draw_outline yes
-draw_borders no
-draw_graph_borders yes
+    override_utf8_locale = true,
+    xftalpha =  0.5,
+    uppercase =  false, 
 
-override_utf8_locale yes
-use_xft yes
-xftfont caviar dreams:size=8
-xftalpha 0.5
-uppercase no
+    color1 = 'Orange',
+    color2 =  'Green',
+    color3 = 'Red',
+    color4 = 'Yellow',
+    color5 = 'DDDDDD',
+    color6 =  'AAAAAA',
+    color7 =  '888888',
+    color8 = '666666',
 
-default_color DeepSkyBlue
-color1 Orange
-color2 Green
-color3 Red
-color4 Yellow
-color5 DDDDDD
-color6 AAAAAA
-color7 888888
-color8 666666
+    lua_load =  '/home/debian/conky.lua'
 
-lua_load  /home/debian/conky.lua
+}
 
-TEXT
+
+
+
+conky.text = [[
 
 ${color1}${font :Bold:size=14} $alignc ${time %H}:${time %M}
 ${color}${font :Bold:size=14} $alignc ${time %h} ${time %e} - ${time %Y}${font :Bold:size=08} 
@@ -163,4 +189,4 @@ ${color8}${hr 4}
 ${color4}Battery${color1}${alignr}${battery_percent BAT1}
 ${color}${battery_bar BAT1  8,}
 
-
+]]
