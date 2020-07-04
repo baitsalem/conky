@@ -122,7 +122,7 @@ conky.config = {
     color7 =  '888888',
     color8 = '666666',
 
-    lua_load =  '/home/debian/conky.lua'
+    lua_load =  './.conky/conky.lua'
 
 }
 
