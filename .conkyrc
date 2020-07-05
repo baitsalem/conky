@@ -159,10 +159,14 @@ ${color8}Total: ${fs_size /}${alignr}${color}${fs_bar 8,150}
 ${color7}HDD Read-> ${alignc}${color2}${diskio_read}/s ${alignr}${color3}${diskio_write}/s ${color7}<-HDD Write
 ${color2}${diskiograph_read 8,150} ${alignr}${color3}${diskiograph_write 8,150}${color}
 ${color8}${hr 4}
-${if_empty ${lua myaddr}} 
+
+${if_empty ${lua wireintexist}} 
+${else}
 	${color4}Lan${color} ${alignr}${color7}IP: ${lua myaddr}
 	${color7}Download: ${color2}${lua myspeed down} k/s ${alignr} $alignr${color7}Upload: ${color3} ${lua myspeed up} k/s
 	${color lightgray}${lua myspeedgraph down 60 120} ${alignr} ${lua myspeedgraph up 60 120}$color
+$endif
+${if_empty ${lua wirelessintexist}} 
 ${else}
 	${color4}Wifi${alignr}${color7}IP: ${lua mywaddr}
 	${color7}ESSID:${color1}${lua myssid} ${color7}Rate:${color1}${lua wbitrate} 

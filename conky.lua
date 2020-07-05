@@ -62,6 +62,21 @@ function findWInterface()
   return result
 end
 
+function conky_wireintexist()
+  local handle = io.popen('ip a | grep "state UP" | cut -d: -f2 | tr -d " " | grep -E "en.*"')
+  local result = handle:read('*a'):gsub('\n$','')
+  handle:close()
+  return result
+end
+
+function conky_wirelessintexist()
+  local handle = io.popen('ip a | grep "state UP" | cut -d: -f2 | tr -d " " | grep -E "wl.*"')
+  local result = handle:read('*a'):gsub('\n$','')
+  handle:close()
+  return result
+end
+
+
 function conky_battery()
   return conky_parse('${battery_percent ' .. findBatteryName() .. '}')
 end
