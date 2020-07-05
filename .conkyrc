@@ -162,13 +162,13 @@ ${color8}${hr 4}
 
 ${if_empty ${lua wireintexist}} 
 ${else}
-	${color4}Lan${color} ${alignr}${color7}IP: ${lua myaddr}
+	${color4}Lan${color} ${alignr}${color7}IP:${color2}${lua myaddr}
 	${color7}Download: ${color2}${lua myspeed down} k/s ${alignr} $alignr${color7}Upload: ${color3} ${lua myspeed up} k/s
 	${color lightgray}${lua myspeedgraph down 60 120} ${alignr} ${lua myspeedgraph up 60 120}$color
 $endif
 ${if_empty ${lua wirelessintexist}} 
 ${else}
-	${color4}Wifi${alignr}${color7}IP: ${lua mywaddr}
+	${color4}Wifi${alignr}${color7}IP:${color2}${lua mywaddr}
 	${color7}ESSID:${color1}${lua myssid} ${color7}Rate:${color1}${lua wbitrate} 
 	${color7}Quality:${color1}${lua wlinkqual}%${color}${lua wlinkbar 8,75}
 	${color7}Download: ${color2}${lua mywspeed down}KB/s ${color3} $alignr${color7}Upload: ${alignr}${color3}${lua mywspeed up}KB/s
