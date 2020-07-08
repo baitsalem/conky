@@ -141,8 +141,6 @@ ${color8}$alignc ${execi 1000 cat /proc/cpuinfo | grep 'model name' | sed -e 's/
 ${color8}${hr 2}
 ${color4}CPU $alignr${color6}CPU: ${color1}${hwmon 0 temp 1}°C ${color6}GPU: ${color1}${execi 60 nvidia-settings -t -q GPUCoreTemp}°C 
 ${color}${cpubar 8,325}:${color5}$cpu%
-${color7}Core1: ${color}${cpubar cpu1 7,80} ${color7}${cpu cpu1}% $alignr${color7}${cpu cpu2}%${color}${cpubar cpu2 7,80}${color7} :Core2
-${color7}Core3: ${color}${cpubar cpu3 7,80} ${color7}${cpu cpu3}% $alignr${color7}${cpu cpu4}%${color}${cpubar cpu4 7,80}${color7} :Core4
 ${color}${cpugraph 15,}
 ${color5}Process Name ${color5}$alignr CPU% MEM%
 ${color6}${top name 1}$alignr${top cpu 1}   ${top mem 1}
