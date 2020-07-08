@@ -161,6 +161,7 @@ ${color2}${diskiograph_read 8,150} ${alignr}${color3}${diskiograph_write 8,150}$
 ${color8}${hr 4}
 ${lua showints}
 ${lua showwints}
+${color8}${hr 4}
 ${if_existing /sys/class/power_supply/BAT0}
 ${color4}battery${color1}${alignr}${battery_percent BAT0}
 ${color}${battery_bar BAT0 8,}
