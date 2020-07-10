@@ -171,5 +171,5 @@ $endif
 ${color8}${hr 4}
 ${color4}Anonsurf state:
 
-${color2}${exec sudo cat /etc/anonsurf/conky_msg  }
+${color8}${exec sudo cat /etc/anonsurf/conky_msg  }
 ]]
