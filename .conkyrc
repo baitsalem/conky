@@ -170,5 +170,6 @@ ${color}${battery_bar BAT1 8,}
 $endif
 ${color8}${hr 4}
 ${color4}Anonsurf state:
+
 ${color2}${exec sudo cat /etc/anonsurf/conky_msg  }
 ]]
